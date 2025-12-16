@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* text-align: center; */
+    justify-content: center;
+}
+
+button{
+    margin-top: 40px;
+    margin-left: 10px;
+    /* margin-bottom: 40px; */
+}
+
+input{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: white;
+}
