@@ -1,37 +1,35 @@
-import { useState } from "react";
-import "./todo.css"
+import React from "react";
+import "./todo.css";
 
 function Todo() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
 
   function addTask() {
-    setTasks([...tasks, task]);
-    setTask("");
+    const input = document.getElementById("taskInput");
+    const task = input.value.trim();
+    if (task === "") 
+      return alert("Empty Value");
+
+    const ul = document.getElementById("taskList");
+    const li = document.createElement("li");
+    li.textContent = task;
+    ul.appendChild(li);
+
+    input.value = "";
   }
 
-  function del(){
-    
+  function deleteAll() {
+    // input = "";
+    document.getElementById("taskList").innerHTML = "";
   }
+
   return (
     <div>
-      <h1>To Do App</h1>
-
-      <input
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Enter task"
-      />
-
+      <h1>To-Do App</h1>
+      <input type="text" id="taskInput" placeholder="Enter task" />
       <button onClick={addTask}>Add</button>
+      <button onClick={deleteAll}>Delete All</button>
 
-      <ul>
-        { tasks.map((t, index) => (
-          <li key={index}>{t}</li>
-        ))}
-      </ul>
-
-      <button onClick={del}> Delete: </button>
+      <ul id="taskList" style={{ listStyleType: "none", paddingLeft: 0, marginTop: "20px" }}></ul>
     </div>
   );
 }

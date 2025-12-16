@@ -45,4 +45,4 @@ function Portfolio() {
   );
 }
 
-export default portfolio;
+export default Portfolio;
